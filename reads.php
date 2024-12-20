@@ -1,6 +1,7 @@
 <?php
 include 'dpc.php';
 
+
 $sql = "SELECT * FROM client";
 $result = $conn->query($sql);
 // print_r($result);
@@ -31,7 +32,8 @@ $result = $conn->query($sql);
 </head>
 <body>
     <h1>Customer List</h1>
-    <a href="creates.php">Add New Item</a>
+    <a href="creates.php">Add New Users</a>
+    
     <table border="1">
         <tr>
             <th>ID</th>
@@ -41,7 +43,8 @@ $result = $conn->query($sql);
             <th>Password</th>
             <th>Actions</th>
         </tr>
-        <?php while ($row = $result->fetch_assoc()):?>
+        <?php while ($row = $result->fetch_assoc()) :?>
+            <!-- <?php print_r($row) ;?> -->
         <tr>
             <td><?= $row['id'] ?></td>
             <td><?= $row['Fname'] ?></td>

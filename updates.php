@@ -22,7 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pass = $_POST['password'];
     $sql = "UPDATE client SET Fname='$name', Email='$email', Phone='$phone', Password1='$pass' WHERE id=$id";
     if ($conn->query($sql) === TRUE) {
+        
         header("Location: reads.php");
+        exit();
     } else {
         echo "Error: " . $conn->error;
     }
