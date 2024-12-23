@@ -1,6 +1,14 @@
 <?php
-include 'dpc.php';
+session_start();
 
+// Check if the user is logged in
+if (!isset($_SESSION['user_email'])) {
+    // Redirect to login page if the session does not exist
+    header('Location: Login.html');
+    exit();
+}
+
+include 'dpc.php';
 
 $sql = "SELECT * FROM client";
 $result = $conn->query($sql);
@@ -13,7 +21,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read Items</title>
-    <link rel="stylesheet" href="read.css">
+    <link rel="stylesheet" href="Styles/read.css">
     <!-- <style>
         td{
             padding: 25px;
@@ -31,6 +39,7 @@ $result = $conn->query($sql);
     </style> -->
 </head>
 <body>
+    <a href="Login.html">Logout</a>
     <h1>Customer List</h1>
     <a href="creates.php">Add New Users</a>
     

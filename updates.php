@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'dpc.php';
 
 if (isset($_GET['id'])) {
@@ -37,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Item</title>
-    <link rel="stylesheet" href="update.css">
+    <link rel="stylesheet" href="Styles/update.css">
     <!-- <style>
         input{
             padding: 7px;

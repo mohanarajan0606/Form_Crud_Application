@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'dpc.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Item</title>
-    <link rel="stylesheet" href="create.css">
+    <link rel="stylesheet" href="Styles/create.css">
     
 </head>
 <body>

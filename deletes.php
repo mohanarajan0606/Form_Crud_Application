@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'dpc.php';
 
 if (isset($_GET['id'])) {
