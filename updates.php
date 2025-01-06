@@ -1,6 +1,7 @@
 <?php
-session_start();
 
+ 
+include 'Session_Check.php';
 include 'dpc.php';
 
 if (isset($_GET['id'])) {
@@ -31,9 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error: " . $conn->error;
     }
 }
+    $str = "https://www.w3schools";
+    print_r(htmlentities($str));
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 20px;
         }
     </style> -->
-</head>
+<!-- </head>
 <body>
     <h1>Edit Item</h1>
     <form method="POST" action="">
@@ -60,5 +63,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Update</button>
     </form>
     <h2><a href="reads.php">Back to List</a></h2>
+</body> -->
+<!-- </html> --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item</title>
+    <link rel="stylesheet" href="Styles/update.css">
+</head>
+<body>
+    <h1>Edit Item</h1>
+    <form method="POST" action="">
+        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+        <h4>First Name : <input type="text" name="name" value="<?= $item['Fname'] ?>" required></h4>
+        <h4>Last Name  : <input type="text" name="email" value="<?= $item['Email'] ?>" required></h4>
+        <h4>Phone No   : <input type="number" name="phone" value="<?= $item['Phone'] ?>" required></h4>
+        <h4>
+            Password:
+            <input type="password" name="password" id="password" value="<?= $item['Password1'] ?>" required>
+            <input type="checkbox" id="togglePassword"> Show Password
+        </h4>
+        <button type="submit">Update</button>
+    </form>
+    <h2><a href="reads.php">Back to List</a></h2>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('change', () => {
+            passwordField.type = togglePassword.checked ? 'text' : 'password';
+            // console.log(passwordField);
+        });
+        // console.log(togglePassword);
+    </script>
 </body>
 </html>

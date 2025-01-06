@@ -84,22 +84,6 @@ function validatePhone(input) {
     return error;
 }
 
-// function validatePhoneOnKeyPress(event) {
-//     const keyCode = event.which || event.keyCode; // Get the keycode for the pressed key
-
-//     // Allow only digits (0-9) and control keys like backspace, delete, and arrow keys
-//     if (
-//         (keyCode >= 48 && keyCode <= 57) || // Digits 0-9
-//         keyCode === 8 || // Backspace
-//         keyCode === 46 || // Delete
-//         keyCode === 37 || // Left Arrow
-//         keyCode === 39 // Right Arrow
-//     ) {
-//         return true;
-//     } else {
-//         return false; // Prevent any non-digit input
-//     }
-// }
 
 function validatePhoneOnKeyPress(event) {
     const keyCode = event.which || event.keyCode; // Get the keycode for the pressed key

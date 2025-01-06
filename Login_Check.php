@@ -41,8 +41,10 @@ if (!empty($email) && !empty($password)) {
         exit();
     } else {
         // Login failed
+       
         echo "<p style='color: red;'>Invalid email or password. Please try again.</p>
-               <a href='Login.html'>Back To The Login Page</a>";
+        <a href='Login.html'>Back To The Login Page</a>";
+    
     }
     
     $stmt->close();

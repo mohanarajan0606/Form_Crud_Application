@@ -1,9 +1,10 @@
 <?php
-session_start();
 
+include 'Session_Check.php';
 include 'dpc.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_post[''];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];

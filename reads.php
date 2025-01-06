@@ -1,13 +1,6 @@
 <?php
-session_start();
 
-// Check if the user is logged in
-if (!isset($_SESSION['user_email'])) {
-    // Redirect to login page if the session does not exist
-    header('Location: Login.html');
-    exit();
-}
-
+include 'Session_Check.php';
 include 'dpc.php';
 
 $sql = "SELECT * FROM client";
@@ -41,7 +34,7 @@ $result = $conn->query($sql);
 <body>
     <a href="Login.html">Logout</a>
     <h1>Customer List</h1>
-    <a href="creates.php">Add New Users</a>
+    <a href="Save.php">Add New Users</a>
     
     <table border="1">
         <tr>
@@ -61,7 +54,7 @@ $result = $conn->query($sql);
             <td><?= $row['Phone']?></td>
             <td><?= $row['Password1']?></td>
             <td>
-                <a class="update" href="updates.php?id=<?= $row['id'] ?>">Edit</a>
+                <a class="update" href="Save.php?id=<?= $row['id'] ?>">Edit</a>
                 <a class="delete" href="deletes.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
